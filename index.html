@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hochzeitsinfos</title>
+  <meta name="description" content="Musikwünsche, Parkplatz und Fußweg zur Schlosskapelle">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#fffaf3;
+      --ink:#2c2723;
+      --muted:#7a6d62;
+      --accent:#8f7a5a;
+      --accent-dark:#6f5d43;
+      --line:#ddd1c0;
+      --shadow: 0 18px 45px rgba(52,42,31,.14);
+      --radius: 28px;
+      --font-serif: "Baskerville Display PT", "Libre Baskerville", Georgia, "Times New Roman", serif;
+      --font-sans: Arial, Helvetica, sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;font-family:var(--font-serif);color:var(--ink);background:
+      radial-gradient(circle at 10% 0%, rgba(255,255,255,.9), transparent 32%),
+      linear-gradient(145deg,#f8f1e7 0%,#efe4d3 100%);}
+    body{display:flex;align-items:center;justify-content:center;padding:22px;}
+
+    .page{
+      width:min(480px,100%);
+      min-height:min(980px, calc(100vh - 44px));
+      background: var(--paper);
+      border:1px solid rgba(143,122,90,.22);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .page:before,.page:after{
+      content:"";
+      position:absolute;
+      border:1px solid rgba(143,122,90,.25);
+      inset:14px;
+      border-radius:22px;
+      pointer-events:none;
+    }
+    .page:after{
+      inset:22px;
+      border-color:rgba(143,122,90,.12);
+    }
+
+    header{
+      text-align:center;
+      padding:56px 28px 20px;
+      position:relative;
+      z-index:1;
+    }
+
+    .eyebrow{
+      font-family: var(--font-sans);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:13px;
+      color:var(--accent-dark);
+      margin-bottom:14px;
+      font-weight:400;
+    }
+
+    h1{
+      margin:0;
+      font-size:37px;
+      line-height:1.12;
+      font-weight:400;
+      letter-spacing:.01em;
+      font-family:var(--font-serif);
+      white-space:normal;
+    }
+
+    .date{
+      margin:18px auto 0;
+      display:inline-block;
+      padding:8px 18px;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      font-family: var(--font-sans);
+      font-size:13px;
+      letter-spacing:.08em;
+      color:var(--muted);
+    }
+
+    main{
+      padding:10px 30px 40px;
+      position:relative;
+      z-index:1;
+    }
+
+    .intro{
+      font-family: var(--font-sans);
+      font-size:15px;
+      line-height:1.55;
+      text-align:center;
+      color:var(--muted);
+      margin:0 auto 24px;
+      max-width:355px;
+    }
+
+    .buttons{display:grid;gap:18px;}
+
+    a.button{
+      text-decoration:none;
+      color:var(--ink);
+      background:#fff;
+      border:1px solid rgba(143,122,90,.30);
+      border-radius:22px;
+      padding:14px;
+      display:block;
+      box-shadow:0 8px 22px rgba(52,42,31,.07);
+      transition:.18s transform ease,.18s box-shadow ease,.18s border-color ease;
+    }
+    a.button:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 28px rgba(52,42,31,.12);
+      border-color:rgba(143,122,90,.55);
+    }
+
+    .thumb{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      height:auto;
+      border-radius:18px;
+      border:1px solid rgba(143,122,90,.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      margin-bottom:14px;
+      overflow:hidden;
+      position:relative;
+      background:#f6efe5;
+    }
+
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      background:#f6efe5;
+    }
+
+    .content{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      min-height:54px;
+    }
+
+    .icon{
+      width:44px;height:44px;border-radius:15px;
+      display:grid;place-items:center;
+      flex:0 0 auto;
+      background:#f3ecdf;
+      border:1px solid rgba(143,122,90,.25);
+      font-family: var(--font-sans);
+      font-size:22px;
+    }
+    .spotify .icon{background:rgba(29,185,84,.10);color:#127a39;}
+    .parkplatz .icon{color:#8f4a32;}
+    .route .icon{color:#6f5d43;}
+
+    .label{
+      display:block;
+      font-size:20px;
+      line-height:1.18;
+      margin-bottom:5px;
+      font-weight:400;
+      font-family:var(--font-serif);
+    }
+    .sub{
+      display:block;
+      font-family:var(--font-sans);
+      font-size:13px;
+      line-height:1.35;
+      color:var(--muted);
+    }
+
+    footer{
+      text-align:center;
+      padding:0 30px 44px;
+      font-family:var(--font-sans);
+      font-size:12px;
+      color:var(--muted);
+      position:relative;
+      z-index:1;
+    }
+
+    .divider{
+      width:80px;
+      height:1px;
+      background:var(--line);
+      margin:8px auto 18px;
+    }
+
+    @media (max-width:420px){
+      h1{font-size:35px;}
+    }
+
+    @media (max-width:370px){
+      h1{font-size:32px;}
+      header{padding-top:50px}
+      main{padding-left:24px;padding-right:24px}
+      .label{font-size:18px}
+      .buttons{gap:16px}
+      .eyebrow{font-size:12px}
+    }
+  </style>
+</head>
+<body>
+  <section class="page">
+    <header>
+      <div class="eyebrow">Hochzeitsinfos</div>
+      <h1>Kathleen &amp;<br>Alexander</h1>
+      <div class="date">26 Sept 26</div>
+    </header>
+
+    <main>
+      <p class="intro">
+        Schön, dass ihr dabei seid. Hier findet ihr unsere wichtigsten Links für Musik, Anfahrt und den Weg zur Schlosskapelle.
+      </p>
+
+      <div class="buttons">
+        <a class="button spotify" href="https://open.spotify.com/playlist/4OReskUY4LpPWgWvfjzWsO?si=59ac3f6b9b4e4e29&pt=1d35006b6f98c0510677626219d71540" target="_blank" rel="noopener">
+          <div class="thumb">
+            <img src="spotify-button.png" alt="Hochzeits-Playlist auf Spotify">
+          </div>
+          <div class="content">
+            <span class="icon">♪</span>
+            <span>
+              <span class="label">Wunschlied hinzufügen</span>
+              <span class="sub">Zur gemeinsamen Spotify-Hochzeitsliste</span>
+            </span>
+          </div>
+        </a>
+
+        <a class="button parkplatz" href="https://maps.app.goo.gl/FTK3QX74PDG2t9pk8" target="_blank" rel="noopener">
+          <div class="thumb">
+            <img src="parkplatz-button.png" alt="Parkplatz auf Google Maps">
+          </div>
+          <div class="content">
+            <span class="icon">P</span>
+            <span>
+              <span class="label">Parkplatz anzeigen</span>
+              <span class="sub">Direkt in Google Maps anzeigen</span>
+            </span>
+          </div>
+        </a>
+
+        <a class="button route" href="https://maps.app.goo.gl/vJDNLaMirGGSTeY76" target="_blank" rel="noopener">
+          <div class="thumb">
+            <img src="kapellenweg-button.png" alt="Weg zur Schlosskapelle">
+          </div>
+          <div class="content">
+            <span class="icon">⌖</span>
+            <span>
+              <span class="label">Fußweg zur Kapelle</span>
+              <span class="sub">Vom Parkplatz bis zur Schlosskapelle</span>
+            </span>
+          </div>
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <div class="divider"></div>
+      Wir freuen uns auf euch.
+    </footer>
+  </section>
+</body>
+</html>
