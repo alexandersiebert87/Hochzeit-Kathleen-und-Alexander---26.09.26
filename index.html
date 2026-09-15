@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Hochzeitsinfos</title>
-  <meta name="description" content="Musikwünsche, Parkplatz, Fußweg zur Schlosskapelle und Hotelempfehlungen">
+  <meta name="description" content="Musikwünsche, wichtige Anreiseinformationen und Hotelempfehlungen">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap" rel="stylesheet">
@@ -167,6 +167,7 @@
       font-size:22px;
     }
     .spotify .icon{background:rgba(29,185,84,.10);color:#127a39;}
+    .anreise .icon{background:#fff4df;color:#8a642e;border-color:#d7ab66;}
     .parkplatz .icon{color:#8f4a32;}
     .route .icon{color:#6f5d43;}
     .hotel .icon{color:#6f5d43;}
@@ -244,10 +245,23 @@
 
     <main>
       <p class="intro">
-        Schön, dass ihr dabei seid. Hier findet ihr unsere wichtigsten Links für Musik, Anfahrt, den Weg zur Schlosskapelle und Hotelempfehlungen.
+        Schön, dass ihr dabei seid. Hier findet ihr unsere wichtigsten Infos für Musik, Anreise und Übernachtung.
       </p>
 
       <div class="buttons">
+        <a class="button anreise" href="anreise.html">
+          <div class="thumb">
+            <img src="parkplatz-button.png" alt="Wichtige Informationen zur Anreise">
+          </div>
+          <div class="content">
+            <span class="icon">!</span>
+            <span>
+              <span class="label">Wichtige Anreiseinfos</span>
+              <span class="sub">Parken, Fußweg &amp; Shuttle – bitte vorab lesen</span>
+            </span>
+          </div>
+        </a>
+
         <a class="button spotify" href="https://open.spotify.com/playlist/4OReskUY4LpPWgWvfjzWsO?si=9d13f19690814270&pt=c11da5064e2ae1e955d7273d387a693e" target="_blank" rel="noopener">
           <div class="thumb">
             <img src="spotify-button.png" alt="Hochzeits-Playlist auf Spotify">
@@ -257,32 +271,6 @@
             <span>
               <span class="label">Wunschlied hinzufügen</span>
               <span class="sub">Zur gemeinsamen Spotify-Hochzeitsliste</span>
-            </span>
-          </div>
-        </a>
-
-        <a class="button parkplatz" href="https://maps.app.goo.gl/FTK3QX74PDG2t9pk8" target="_blank" rel="noopener">
-          <div class="thumb">
-            <img src="parkplatz-button.png" alt="Parkplatz auf Google Maps">
-          </div>
-          <div class="content">
-            <span class="icon">P</span>
-            <span>
-              <span class="label">Parkplatz anzeigen</span>
-              <span class="sub">Direkt in Google Maps anzeigen</span>
-            </span>
-          </div>
-        </a>
-
-        <a class="button route" href="https://maps.app.goo.gl/vJDNLaMirGGSTeY76" target="_blank" rel="noopener">
-          <div class="thumb">
-            <img src="kapellenweg-button.png" alt="Weg zur Schlosskapelle">
-          </div>
-          <div class="content">
-            <span class="icon">⌖</span>
-            <span>
-              <span class="label">Fußweg zur Kapelle</span>
-              <span class="sub">Vom Parkplatz bis zur Schlosskapelle</span>
             </span>
           </div>
         </a>
